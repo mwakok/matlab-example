@@ -23,9 +23,8 @@ jobs:
           source-folder: src
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
-      - name: Create Coverage 
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: orgoro/coverage@v3.1
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
         with:
-            coverageFile: code-coverage/coverage.xml
-            token: ${{ secrets.GITHUB_TOKEN }}
+          name: coverage
+          path: code-coverage/coverage.xml
