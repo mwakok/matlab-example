@@ -17,15 +17,15 @@ jobs:
         uses: matlab-actions/setup-matlab@v2
         with:
           release: R2023b
+          cache: true
       - name: Run tests
         uses: matlab-actions/run-tests@v2
         with:
           source-folder: src
           test-results-junit: test-results/results.xml
           code-coverage-cobertura: code-coverage/coverage.xml
-      - name: Create Coverage 
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: orgoro/coverage@v3.1
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
         with:
-            coverageFile: code-coverage/coverage.xml
-            token: ${{ secrets.GITHUB_TOKEN }}
+          file: code-coverage/coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
