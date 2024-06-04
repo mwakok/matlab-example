@@ -9,6 +9,6 @@ function result = sumNumbers(a, b)
     %   double: The sum of the input values
     %
     % Examples:
-    %   >>> sumNumbers_matlab(2,2)
+    %   >>> sumNumbers(2,2)
     result = a + b;
     end
