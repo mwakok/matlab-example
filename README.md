@@ -1,16 +1,45 @@
-# Example of a MATLAB repository
+# [PROJECT NAME]
 
-[![codecov](https://codecov.io/github/mwakok/matlab-example/graph/badge.svg?token=OAKWZ3BQ3R)](https://codecov.io/github/mwakok/matlab-example)
-[![Generate Test and Coverage Artifacts](https://github.com/mwakok/matlab-example/actions/workflows/testing.yml/badge.svg)](https://github.com/mwakok/matlab-example/actions/workflows/testing.yml)
-[![documentation](https://github.com/mwakok/matlab-example/actions/workflows/docs.yml/badge.svg)](https://github.com/mwakok/matlab-example/actions/workflows/docs.yml)
+Generic MATLAB template for the AWE Group.
 
-This repository demonstrates the use of GitHub Actions to:
-- Run tests
-- Generate code coverage report for Pull Requests
-- Build and deploy documentation
+## :gear: Installation
 
+### User Installation
+Please check the file `DEPENDENCIES.txt` for the required dependencies.
 
-## Matlab addons
-Additional addons can be installed through GitHub Actions. For the syntax of the available addons, see the [reference of MPM input files](https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/dc71095be4c0462428922791044597e1e666542f/mpm-input-files/R2024a/mpm_input_r2024a.txt#L62).
+### Developer Installation
+- Sphinx Dependencies, see [requirements](docs/requirements.txt)
 
-Note, not all Addons are available through GitHub Actions. Check current limitations at [MPM limitations](https://github.com/mathworks-ref-arch/matlab-dockerfile/blob/main/MPM.md#limitations)
+## :eyes: Usage example
+
+```matlab
+clear all
+
+data = load_data('data/user_input.yml')
+
+result = process_data(data)
+
+save_result(result, 'results/result.png')
+
+```
+
+## :wave: Contributing (optional)
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## :warning: License and Waiver
+
+Specify the license under which your software is distributed, and include the copyright notice:
+
+> Technische Universiteit Delft hereby disclaims all copyright interest in the program “NAME PROGRAM” (one line description of the content or function) written by the Author(s).
+> 
+> Prof.dr. H.G.C. (Henri) Werij, Dean of Aerospace Engineering
+> 
+> Copyright (c) [YEAR] [NAME SURNAME].
+
+By default, the [MIT license](./LICENSE) is included.
+
+## :gem: Help and Documentation
+[AWE Group | Developer Guide](https://awegroup.github.io/developer-guide/)
