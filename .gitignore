@@ -1,3 +1,8 @@
+# User defined files and folders
+data/
+data_processed/
+results/
+
 # Windows default autosave extension
 *.asv
 
