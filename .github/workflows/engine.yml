@@ -38,7 +38,7 @@ jobs:
         with:
           command: 1+1
       - name: Verify batch command
-        run: matlab -c MLM_LICENSE_TOKEN -batch "1+1"
+        run: matlab -c $MLM_LICENSE_TOKEN -batch "1+1"
       # - name: Import matlab engine in python
         # run: |
         #   import matlab.engine
