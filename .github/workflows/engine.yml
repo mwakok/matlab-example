@@ -31,13 +31,12 @@ jobs:
             Aerospace_Blockset
       - name: Install MATLAB Engine
         run: |
-          MATLAB_EXEC=$(whereis matlab | awk '{print $2}')
-          MATLAB_ROOT=$(dirname $(dirname $MATLAB_EXEC))
+          MATLAB_ROOT = matlab -batch "matlabroot"
           cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install --user
       - name: verify MATLAB install
         run: |
-          run: matlab -batch "pyenv(Version='3.10')"
+          run: matlab -batch "pyenv(version='3.10')"
       - name: Verify MATLAB Engine
         run: |
           python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
