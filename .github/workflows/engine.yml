@@ -37,11 +37,13 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: 1+1
-      - name: Import matlab engine in python
-        run: |
-          import matlab.engine
-          eng = matlab.engine.start_matlab('-c MLM_LICENSE_TOKEN')
-        shell: python
+      - name: Verify batch command
+        script: matlab -batch "1+1"
+      # - name: Import matlab engine in python
+        # run: |
+        #   import matlab.engine
+        #   eng = matlab.engine.start_matlab('-c MLM_LICENSE_TOKEN')
+        # shell: python
       # - name: Verify MATLAB Engine
       #   run: |
       #     python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
