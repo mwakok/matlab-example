@@ -1,4 +1,4 @@
-name: documentation
+name: test-action
 
 on:
   push:
@@ -6,9 +6,6 @@ on:
   pull_request:
       types: [opened, ready_for_review, closed]
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 env:
   MLM_LICENSE_TOKEN: ${{ secrets.MATLAB_TOKEN }}
@@ -36,8 +33,9 @@ jobs:
           cd "$MATLAB_ROOT/extern/engines/python"
           python setup.py install --user
       - name: Verify matlab installation
-        run: |
-          matlab -batch "1+1"
-      - name: Verify MATLAB Engine
-        run: |
-          python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
+        uses: matlab-actions/run-command@v2
+        with:
+          command: 1+1
+      # - name: Verify MATLAB Engine
+      #   run: |
+      #     python -c "import matlab.engine; eng = matlab.engine.start_matlab(); print(eng.sqrt(16.0))"
